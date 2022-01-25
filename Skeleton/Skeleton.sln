@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skeleton", "Skeleton\Skeleton.csproj", "{00A4539F-3808-4693-BBDC-37AE7C59342C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkeletonLibrary", "SkeletonLibrary\SkeletonLibrary.csproj", "{1248CEA3-341D-4EA9-BBE9-A272DD9AFEC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00A4539F-3808-4693-BBDC-37AE7C59342C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A4539F-3808-4693-BBDC-37AE7C59342C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A4539F-3808-4693-BBDC-37AE7C59342C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A4539F-3808-4693-BBDC-37AE7C59342C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1248CEA3-341D-4EA9-BBE9-A272DD9AFEC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1248CEA3-341D-4EA9-BBE9-A272DD9AFEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1248CEA3-341D-4EA9-BBE9-A272DD9AFEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1248CEA3-341D-4EA9-BBE9-A272DD9AFEC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F179A66-E981-434D-AE21-2BDDF5722E6E}
+	EndGlobalSection
+EndGlobal
