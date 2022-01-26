@@ -8,10 +8,13 @@ namespace SkeletonLibrary
 {
     public class ConcreteObserver : IObserver
     {
+        public int Counter { get; set; } = 0;
         public string Name { get; set; }
+
         public string Update()
         {
-            return $"Пользователь {Name} ({GetType()}) оповещён";
+            Counter += 1;
+            return $"Пользователь {Name} ({GetType()}) оповещён.";
         }
     }
 }

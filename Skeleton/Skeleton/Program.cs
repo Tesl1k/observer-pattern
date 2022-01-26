@@ -17,10 +17,25 @@ namespace Skeleton
 
 
             basa.registerObserver(man, "Саша");
-            basa.registerObserver(woman, "Маша");
 
             basa.State = "1";
 
+            Console.WriteLine(man.Counter);
+            Console.WriteLine(woman.Counter);
+            Console.WriteLine(basa.ObserversMessage);
+
+            basa.registerObserver(woman, "Маша");
+            basa.State = "2";
+
+            Console.WriteLine(man.Counter);
+            Console.WriteLine(woman.Counter);
+            Console.WriteLine(basa.ObserversMessage);
+
+            basa.removeObserver(woman);
+            basa.State = "3";
+
+            Console.WriteLine(man.Counter);
+            Console.WriteLine(woman.Counter);
             Console.WriteLine(basa.ObserversMessage);
 
 
