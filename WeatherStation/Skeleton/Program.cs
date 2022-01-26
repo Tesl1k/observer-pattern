@@ -13,16 +13,10 @@ namespace Skeleton
         {
             WeatherData weatherData = new WeatherData();
             CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
-            StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
-
-                        
+            StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);                        
                       
             Console.WriteLine(weatherData.setMeasurements(22, 65, 30));
-            Console.WriteLine(weatherData.setMeasurements(24, 70, 29));
-            Console.WriteLine(weatherData.setMeasurements(20, 90, 29));
-
-            
-
+            Console.WriteLine(weatherData.setMeasurements(24, 26, 66, 70, 29, 31));
 
             Console.ReadKey();
             

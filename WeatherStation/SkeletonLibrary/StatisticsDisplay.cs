@@ -8,15 +8,15 @@ namespace SkeletonLibrary
 {
     public class StatisticsDisplay : IObserver, IDisplayElement
     {
-        private float MinTemperature;
-        private float MaxTemperature;
-        private float AvgTemperature;
-        private float MinHumidity;
-        private float MaxHumidity;
-        private float AvgHumidity;
-        private float MinPressure;
-        private float MaxPressure;
-        private float AvgPressure;
+        public static float MinTemperature;
+        public static float MaxTemperature;
+        public static float AvgTemperature;
+        public static float MinHumidity;
+        public static float MaxHumidity;
+        public static float AvgHumidity;
+        public static float MinPressure;
+        public static float MaxPressure;
+        public static float AvgPressure;
         private ISubject weatherData;
 
         public StatisticsDisplay(ISubject weatherData)
@@ -25,17 +25,27 @@ namespace SkeletonLibrary
             weatherData.registerObserver(this);
         }
 
-        public string Update(float t1, float t2, float t3, float h1, float h2, float h3, float p1, float p2, float p3)
+        public string Update(float temp, float humidity, float pressure)
         {
-            this.MinTemperature = t1;
-            this.MaxTemperature = t2;
-            this.AvgTemperature = t3;
+            return ToUpdate(MinTemperature, MaxTemperature, MinHumidity, MaxHumidity, MinPressure, MaxPressure);
+        }
+        public string ToUpdate(float t1, float t2, float h1, float h2, float p1, float p2)
+        {
+            MinTemperature = t1;
+            MaxTemperature = t2;
+            AvgTemperature = (t1 + t2)/2; 
+            MinHumidity = h1;
+            MaxHumidity = h2;
+            AvgHumidity = (h1 + h2) / 2;
+            MinPressure = p1;
+            MaxPressure = p2;
+            AvgPressure = (p1 + p2) / 2;
             return Display();
         }
 
         public string Display()
         {
-            return $"Минимальное, среднее и максимальное знаечение (темература/влажность/давление): \nТемпература = {temperature}°. Влажность = {humidity}%. Давление = {pressure}. ({this.GetType()})";
+            return $"Минимальное, среднее и максимальное знаечение (темература/влажность/давление): \nТемпература = {MinTemperature}°/{AvgTemperature}°/{MaxTemperature}°. Влажность = {MinHumidity}%/{AvgHumidity}%/{MaxHumidity}%. Давление = {MinPressure}/{AvgPressure}/{MaxPressure}. ({this.GetType()})";
         }
     }
 }
