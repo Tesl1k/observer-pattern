@@ -17,11 +17,10 @@ namespace SkeletonLibrary
         public string Name { get; set; }
 
 
-        List<IObserver> users = new List<IObserver>();
+        public List<IObserver> users = new List<IObserver>();
 
-        public void registerObserver(IObserver observer, string name)
+        public void registerObserver(IObserver observer)
         {
-            observer.Name = name;
             users.Add(observer);
         }
 

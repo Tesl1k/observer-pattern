@@ -8,8 +8,7 @@ namespace SkeletonLibrary
 {
     public interface IObserver
     {
-
-        string Name { get; set; }
+        
         string Update(float temp, float humidity, float pressure);
 
     }

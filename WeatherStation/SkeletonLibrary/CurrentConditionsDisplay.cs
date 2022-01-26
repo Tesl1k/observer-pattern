@@ -12,12 +12,11 @@ namespace SkeletonLibrary
         private float humidity;
         private float pressure;
         private ISubject weatherData;
-        public string Name { get; set; }
 
         public CurrentConditionsDisplay(ISubject weatherData)
         {
             this.weatherData = weatherData;
-            weatherData.registerObserver(this, Name);
+            weatherData.registerObserver(this);
         }
         public string Update(float temperature, float humidity, float pressure)
         {
@@ -29,7 +28,7 @@ namespace SkeletonLibrary
         
         public string Display()
         {
-            return $"Температура = {temperature}°. Влажность = {humidity}%. Давление = {pressure}. Пользователь {Name} ({GetType()}) оповещён";
+            return $"Текущие условия: Температура = {temperature}°. Влажность = {humidity}%. Давление = {pressure}. ({this.GetType()})\n";
         }
     }
 }

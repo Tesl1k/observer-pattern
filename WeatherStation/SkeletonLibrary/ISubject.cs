@@ -8,8 +8,7 @@ namespace SkeletonLibrary
 {
     public interface ISubject
     {
-        string Name { get; set; }
-        void registerObserver(IObserver observer, string name);
+        void registerObserver(IObserver observer);
 
         void removeObserver(IObserver observer);
 
