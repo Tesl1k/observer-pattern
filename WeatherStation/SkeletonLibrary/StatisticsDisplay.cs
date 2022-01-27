@@ -8,38 +8,33 @@ namespace SkeletonLibrary
 {
     public class StatisticsDisplay : IObserver, IDisplayElement
     {
-        public static float MinTemperature;
-        public static float MaxTemperature;
-        public static float AvgTemperature;
-        public static float MinHumidity;
-        public static float MaxHumidity;
-        public static float AvgHumidity;
-        public static float MinPressure;
-        public static float MaxPressure;
-        public static float AvgPressure;
+        private float MinTemperature;
+        private float MaxTemperature;
+        private float AvgTemperature;
+        private float MinHumidity;
+        private float MaxHumidity;
+        private float AvgHumidity;
+        private float MinPressure;
+        private float MaxPressure;
+        private float AvgPressure;
         private ISubject weatherData;
 
         public StatisticsDisplay(ISubject weatherData)
         {
             this.weatherData = weatherData;
             weatherData.registerObserver(this);
-        }
-
-        public string Update(float temp, float humidity, float pressure)
+        }        
+        public string Update(float temp, float humidity, float pressure, float tmin, float tmax, float tavg, float hmin, float havg, float hmax, float pmin, float pmax, float pavg, float tprog, float hprog, float pprog)
         {
-            return ToUpdate(MinTemperature, MaxTemperature, MinHumidity, MaxHumidity, MinPressure, MaxPressure);
-        }
-        public string ToUpdate(float t1, float t2, float h1, float h2, float p1, float p2)
-        {
-            MinTemperature = t1;
-            MaxTemperature = t2;
-            AvgTemperature = (t1 + t2)/2; 
-            MinHumidity = h1;
-            MaxHumidity = h2;
-            AvgHumidity = (h1 + h2) / 2;
-            MinPressure = p1;
-            MaxPressure = p2;
-            AvgPressure = (p1 + p2) / 2;
+            MinTemperature = tmin;
+            MaxTemperature = tmax;
+            AvgTemperature = (tmin + tmax) /2; 
+            MinHumidity = hmin;
+            MaxHumidity = hmax;
+            AvgHumidity = (hmin + hmax) / 2;
+            MinPressure = pmin;
+            MaxPressure = pmax;
+            AvgPressure = (pmin + pmax) / 2;
             return Display();
         }
 

@@ -10,18 +10,21 @@ namespace SkeletonLibrary
     {     
 
         public string state;
-        float temperatur;
+        float temperature;
         float humidity;
         float pressure;
-        //float MinTemperature;
-        //float MaxTemperature;
-        //float AvgTemperature;
-        //float MinHumidity;
-        //float MaxHumidity;
-        //float AvgHumidity;
-        //float MinPressure;
-        //float MaxPressure;
-        //float AvgPressure;
+        float MinTemperature;
+        float MaxTemperature;
+        float AvgTemperature;
+        float MinHumidity;
+        float MaxHumidity;
+        float AvgHumidity;
+        float MinPressure;
+        float MaxPressure;
+        float AvgPressure;
+        float progTemperature;
+        float progHumidity;
+        float progPressure;
 
         public string Name { get; set; }
 
@@ -45,7 +48,7 @@ namespace SkeletonLibrary
 
             foreach (var user in users)
             {
-                if(x)               
+                x += user.Update(temperature, humidity, pressure, MinTemperature, MaxHumidity, AvgTemperature, MinHumidity, MaxHumidity, AvgHumidity, MinPressure, MaxPressure, AvgPressure, progTemperature, progHumidity, progPressure)     ;           
             }
 
             return x;
@@ -56,26 +59,22 @@ namespace SkeletonLibrary
             return notifyObservers();
         }
 
-        public string setMeasurements(float temperatur, float humidity, float pressure)
+        public string setMeasurements(float temp, float humidity, float pressure, float tmin, float tmax, float hmin, float hmax, float pmin, float pmax, float tprog, float hprog, float pprog)
         {
-            this.temperatur = temperatur;
+            this.temperature = temp;
             this.humidity = humidity;
             this.pressure = pressure;
+            this.MinTemperature = tmin;
+            this.MaxTemperature = tmax;
+            this.AvgTemperature = (tmin + tmax) / 2;
+            this.MinHumidity = hmin;
+            this.MaxHumidity = hmax;
+            this.AvgHumidity = (hmin + hmax) / 2;
+            this.MinPressure = pmin;
+            this.MaxPressure = pmax;
+            this.AvgPressure = (pmin + pmax) / 2;
             return measurementsChanges();
         }
-
-        public string setMeasurements(float t1, float t2, float h1, float h2, float p1, float p2)
-        {
-            StatisticsDisplay.MinTemperature = t1;
-            StatisticsDisplay.MaxTemperature = t2;
-            StatisticsDisplay.AvgTemperature = (t1 + t2) / 2;
-            StatisticsDisplay.MinHumidity = h1;
-            StatisticsDisplay.MaxHumidity = h2;
-            StatisticsDisplay.AvgHumidity = (h1 + h2) / 2;
-            StatisticsDisplay.MinPressure = p1;
-            StatisticsDisplay.MaxPressure = p2;
-            StatisticsDisplay.AvgPressure = (p1 + p2) / 2;
-            return measurementsChanges();
-        }
+        
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SkeletonLibrary
 {
-    public class CurrentConditionsDisplay : IObserver, IDisplayElement
+    public class ForecastDisplay : IObserver, IDisplayElement
     {
         private float temperature;
         private float humidity;
         private float pressure;
         private ISubject weatherData;
 
-        public CurrentConditionsDisplay(ISubject weatherData)
+        public ForecastDisplay(ISubject weatherData)
         {
             this.weatherData = weatherData;
             weatherData.registerObserver(this);
@@ -25,10 +25,10 @@ namespace SkeletonLibrary
             this.pressure = pressure;
             return Display();
         }
-        
+
         public string Display()
         {
-            return $"Текущие условия: Температура = {temperature}°. Влажность = {humidity}%. Давление = {pressure}. ({this.GetType()})\n";
+            return $"Прогноз: Температура = {temperature}°. Влажность = {humidity}%. Давление = {pressure}. ({this.GetType()})\n";
         }
     }
 }
